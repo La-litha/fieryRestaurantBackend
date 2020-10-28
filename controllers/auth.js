@@ -34,6 +34,9 @@ exports.registerUser = asyncHandler(async (req, res, next) => {
     contactNo,
     address
   });
+
+  user.isRestaurant = false;
+
   if (typeOfFood) {
     user.typeOfFood = typeOfFood;
   }

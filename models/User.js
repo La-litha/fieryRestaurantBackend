@@ -341,7 +341,6 @@ const UserSchema = new mongoose.Schema(
     },
     contactNo:{
       type: String,
-      required: [true, "Please enter a contact number"]
     },
     profileImagePath:{
       type: String,
