@@ -21,11 +21,11 @@ exports.getAllRestaurants = asyncHandler(async (req, res, next) => {
 //@desc     Get all restaurants`
 //@route    GET /api/v1/restaurants/:city
 //@access   Public
-exports.getAllRestaurantsByCity = asyncHandler(async (req, res, next) => {
+exports.getAllRestaurantsById = asyncHandler(async (req, res, next) => {
   
   // Query the restaurants by city
-  const restaurants = await Restaurant.find({"address.city": req.params.city});
-
+  // const restaurants = await Restaurant.find({"address.city": req.params.city});
+  const restaurants = await Restaurant.findById(req.params.id)
   res.status(200).json({
     success: true,
     count: restaurants.length,

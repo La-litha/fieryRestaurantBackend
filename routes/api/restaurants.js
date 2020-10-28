@@ -3,7 +3,7 @@ const router = express.Router();
 const { protect } = require('../../middleware/auth');
 
 const { getAllRestaurants,
-    getAllRestaurantsByCity,
+    getAllRestaurantsById,
     addRestaurant
  } = require('../../controllers/restaurants');
 
@@ -55,17 +55,17 @@ router.route('/')
 /**
  * @swagger
  * path:
- *  /api/v1/restaurants/{city}:
+ *  /api/v1/restaurants/{id}:
  *    get:
  *      summary: Fetch all restaurants in the database
  *      tags: [Restaurants]
  *      parameters:
  *        - in: path
- *          name: city
+ *          name: id
  *          schema:
  *            type: string
  *          required: true
- *          description: Fetch restaurants of a city
+ *          description: Fetch details of a restaurant
  *      responses:
  *        "200":
  *          description: Restaurants fetched successfully
@@ -89,6 +89,6 @@ router.route('/')
  *                    items:
  *                      $ref: '#/components/schemas/User'
  */
-router.route('/:city').get(getAllRestaurantsByCity);
+router.route('/:id').get(getAllRestaurantsById);
 
 module.exports = router;

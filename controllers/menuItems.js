@@ -142,10 +142,10 @@ exports.getMenuItemsByRestaurant = asyncHandler(async (req, res, next) => {
 
   const data = {
     restaurantId: restaurant.id,
-    menutItem: menuItems
+    menuItems: menuItems
   }
 
-  res.status(200).json({ success: true, count:menuItems.length, data: data });
+  res.status(200).json({ success: true, count:menuItems.length, data: menuItems });
 });
 
 const doesUserHaveAccessToRestaurant = async (userId, restaurantId) => {
