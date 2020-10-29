@@ -25,7 +25,7 @@ exports.getAllRestaurants = asyncHandler(async (req, res, next) => {
 //@access   Public
 exports.getAllRestaurantsById = asyncHandler(async (req, res, next) => {
   
-  // Query the restaurants by city
+  // Query the restaurants by Id
   // const restaurants = await Restaurant.find({"address.city": req.params.city});
   const restaurants = await Restaurant.findById(req.params.id)
   res.status(200).json({
@@ -70,7 +70,7 @@ exports.addReservation =  asyncHandler(async (req, res, next) => {
 
 exports.getAllReservation =  asyncHandler(async (req, res, next) => {
 
-  const reservations = await Reservation.find({"user": req.params.id});
+  const reservations = await Reservation.find({"user": req.body.user});
   
   res.status(200).json({
     success: true,
@@ -104,7 +104,7 @@ exports.addReviewforRestaurant =  asyncHandler(async (req, res, next) => {
 exports.getAllReviewsforRestaurant =  asyncHandler(async (req, res, next) => {
 
   req.body.restaurant = req.params.id;
-  const review = await Review.find({restaurant: req.params.restaurantId});
+  const review = await Review.find({restaurant: req.params.id});
   res.status(200).json({ success: true, data: review });
 });
 

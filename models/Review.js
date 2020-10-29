@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const ReviewSchema = new mongoose.Schema({
 
     review:{
-        String
+        type: String
     },
     restaurant:{
         type: mongoose.Schema.Types.ObjectId,
@@ -16,8 +16,10 @@ const ReviewSchema = new mongoose.Schema({
         required: true,
     }
 
-})
+},
+{autoCreate: true}
+)
 
-const Review = mongoose.model('Restaurant', ReviewSchema);
+const Review = mongoose.model('Review', ReviewSchema);
 
 module.exports = Review;

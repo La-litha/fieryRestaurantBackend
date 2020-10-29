@@ -2,15 +2,14 @@ const mongoose = require('mongoose');
 
 const ReservationSchema = new mongoose.Schema(
     {
-        
         guestCount: {
             type: String
         },
         bookingDate: {
-            type: Number
+            type: String
         },
         bookingTime: {
-            type: Number
+            type: String
         },
         guestName: {
             type: String
@@ -34,7 +33,8 @@ const ReservationSchema = new mongoose.Schema(
             ref: 'User',
             required: true,
         }
-    }
+    },
+    {autoCreate: true}
 )
 
 const Reservation = mongoose.model('Reservation', ReservationSchema);
