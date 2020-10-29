@@ -1,52 +1,58 @@
 const mongoose = require('mongoose');
 
 const ReservationSchema = new mongoose.Schema(
- {
-    user_id: { type :
-        String
-    },   
-    restaurant_id: { type :
-        String
-    },
-    guestCount:{ type:
-        String 
-     },
-     bookingDate:{type:
-         date
+    {
+        user_id: {
+            type: String
         },
-        bookingTime:{type: String
-         },
-         guestName:{type:
-             String },
+        restaurant_id: {
+            type: String
+        },
+        guestCount: {
+            type: String
+        },
+        bookingDate: {
+            type: Number
+        },
+        bookingTime: {
+            type: Number
 
-         emailID:{type:
-                String },
+        },
+        guestName: {
+            type: String
+        },
 
-        phoneNumber:{type:
-                    String },
-        
-      Instructions:{type:
-         string},
+        emailID: {
+            type: String
+        },
 
-    restaurant: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Restaurant',
-        required: true,
-    },
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
+        phoneNumber: {
+            type:String
+        },
+
+        Instructions: {
+            type:String
+        },
+
+        restaurant: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Restaurant',
+            required: true,
+        },
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true,
+        }
     }
- }
 )
- 
 
 
 
 
 
- 
+
+
 
 
 
