@@ -51,18 +51,26 @@ exports.addRestaurant = asyncHandler(async (req, res, next) => {
   res.status(201).json({ success: true, data: restaurant });
 });
 
+
+
+//@desc     Add a reservation to restaurant
+//@route    GET /api/v1/restaurants/reservation/:restaurantId
+//@access   Public
 exports.addReservation =  asyncHandler(async (req, res, next) => {
+  console.log(req.body)
 
-  req.body.user = req.user.id;
-
+  req.body.restaurant = req.params.id;
+  
   const reservation = await Reservation.create(req.body);
 
   res.status(201).json({ success: true, data: reservation });
 });
 
+
+
 exports.getAllReservation =  asyncHandler(async (req, res, next) => {
 
-  const reservations = await Reservation.find({"user": req.user.id});
+  const reservations = await Reservation.find({"user": req.params.id});
   
   res.status(200).json({
     success: true,
@@ -84,10 +92,18 @@ exports.addEvent =  asyncHandler(async (req, res, next) => {
 
 // });
 
+exports.addReviewforRestaurant =  asyncHandler(async (req, res, next) => {
+
+  req.body.restaurant = req.params.id;
+
+  const review = await Review.create(req.body);
+
+  res.status(200).json({ success: true, data: review });
+});
+
 exports.getAllReviewsforRestaurant =  asyncHandler(async (req, res, next) => {
 
-  req.body.user = req.user.id;
-
+  req.body.restaurant = req.params.id;
   const review = await Review.find({restaurant: req.params.restaurantId});
   res.status(200).json({ success: true, data: review });
 });

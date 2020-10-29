@@ -2,12 +2,7 @@ const mongoose = require('mongoose');
 
 const ReservationSchema = new mongoose.Schema(
     {
-        user_id: {
-            type: String
-        },
-        restaurant_id: {
-            type: String
-        },
+        
         guestCount: {
             type: String
         },
@@ -16,24 +11,19 @@ const ReservationSchema = new mongoose.Schema(
         },
         bookingTime: {
             type: Number
-
         },
         guestName: {
             type: String
         },
-
         emailID: {
             type: String
         },
-
         phoneNumber: {
             type:String
         },
-
         Instructions: {
             type:String
         },
-
         restaurant: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Restaurant',
@@ -47,15 +37,6 @@ const ReservationSchema = new mongoose.Schema(
     }
 )
 
-
-
-
-
-
-
-
-
-
-const Reservation = mongoose.model('Restaurant', ReservationSchema);
+const Reservation = mongoose.model('Reservation', ReservationSchema);
 
 module.exports = Reservation;
